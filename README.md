@@ -6,9 +6,7 @@ It supports both **Generative (Singular prompts)** & **Conversation (Chat-like)*
 [<img style="margin-top: 10px" src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="160"/>](https://buymeacoffee.com/diezo)
 
 ## Installation
-```shell
-$ pip install progpt
-```
+Download this repository and place into your project folder.
 
 ### Get your session_token
 1. Login to [chat.openai.com](https://chat.openai.com) in your computer.
