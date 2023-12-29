@@ -6,7 +6,7 @@ long_description = (Path(__file__).parent / "README.md").read_text(encoding="utf
 
 setup(
     name="progpt",
-    packages=["progpt"],
+    packages=["ProGPT"],
     version=version,
     license="MIT",
     description="❄️ Python Package To Access GPT-3.5 Free Model",
