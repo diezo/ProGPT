@@ -5,7 +5,7 @@ version = "1.0.0"
 long_description = (Path(__file__).parent / "README.md").read_text(encoding="utf-8")
 
 setup(
-    name="ProGPT",
+    name="progpt",
     packages=["ProGPT"],
     version=version,
     license="MIT",
