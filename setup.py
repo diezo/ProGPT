@@ -1,11 +1,11 @@
 from distutils.core import setup
 from pathlib import Path
 
-version = "1.0.0"
+version = "1.0.1"
 long_description = (Path(__file__).parent / "README.md").read_text(encoding="utf-8")
 
 setup(
-    name="progpt",
+    name="ProGPT",
     packages=["ProGPT"],
     version=version,
     license="MIT",
