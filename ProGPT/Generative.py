@@ -5,6 +5,7 @@ import random
 import string
 import os
 from .Authentication import Authentication
+from uuid import uuid4
 
 
 class Generative:
@@ -86,7 +87,7 @@ class Generative:
                 }
             }],
             "model": "text-davinci-002-render-sha",
-            "parent_message_id": self.new_message_id(),
+            "parent_message_id": uuid4(),
             "timezone_offset_min": -330
         }
 
@@ -134,18 +135,3 @@ class Generative:
         message_parts: list = data["message"]["content"]["parts"]
 
         return "".join(message_parts)
-
-    @staticmethod
-    def new_message_id() -> str:
-
-        return str(
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=8)) +
-            "-" +
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=4)) +
-            "-" +
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=4)) +
-            "-" +
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=4)) +
-            "-" +
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=12))
-        )
