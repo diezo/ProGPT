@@ -87,7 +87,7 @@ class Generative:
                 }
             }],
             "model": "text-davinci-002-render-sha",
-            "parent_message_id": uuid4(),
+            "parent_message_id": str(uuid4()),
             "timezone_offset_min": -330
         }
 
