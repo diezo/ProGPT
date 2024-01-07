@@ -1,6 +1,9 @@
 # ProGPT - Free GPT-3.5 API
 
-[![Downloads](https://static.pepy.tech/badge/ProGPT)](https://pepy.tech/project/ProGPT)
+[![PyPI](https://img.shields.io/pypi/v/progpt)](https://pypi.org/project/progpt)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/progpt)]()
+[![Downloads](https://static.pepy.tech/badge/progpt)](https://pepy.tech/project/progpt)
+[![Twitter Share](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fdiezo%2Fprogpt)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdiezo%2Fprogpt)
 
 I reverse engineered [ChatGPT 3.5](https://chat.openai.com)'s Free Web API and put it all together into this simple python package.
 
