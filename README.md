@@ -1,4 +1,7 @@
 # ProGPT - Free GPT-3.5 API
+
+[![Downloads](https://static.pepy.tech/badge/ProGPT)](https://pepy.tech/project/ProGPT)
+
 I reverse engineered [ChatGPT 3.5](https://chat.openai.com)'s Free Web API and put it all together into this simple python package.
 
 It supports both **Generative** & **Conversation** mode.
