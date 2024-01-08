@@ -3,6 +3,7 @@ from requests import Session, Response, JSONDecodeError
 import json
 import random
 import string
+from uuid import uuid4
 
 
 class Conversation:
@@ -85,7 +86,7 @@ class Conversation:
                 }
             }],
             "model": "text-davinci-002-render-sha",
-            "parent_message_id": self.new_message_id(),
+            "parent_message_id": str(uuid4()),
             "timezone_offset_min": -330
         }
 
@@ -139,18 +140,3 @@ class Conversation:
         message_parts: list = data["message"]["content"]["parts"]
 
         return "".join(message_parts)
-
-    @staticmethod
-    def new_message_id() -> str:
-
-        return str(
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=8)) +
-            "-" +
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=4)) +
-            "-" +
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=4)) +
-            "-" +
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=4)) +
-            "-" +
-            "".join(random.choices(string.ascii_lowercase + string.digits, k=12))
-        )

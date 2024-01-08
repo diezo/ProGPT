@@ -1,9 +1,18 @@
 # ProGPT - Free GPT-3.5 API
+
+[![PyPI](https://img.shields.io/pypi/v/progpt)](https://pypi.org/project/progpt)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/progpt)]()
+[![Downloads](https://static.pepy.tech/badge/progpt)](https://pepy.tech/project/progpt)
+[![Twitter Share](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fdiezo%2Fprogpt)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdiezo%2Fprogpt)
+
 I reverse engineered [ChatGPT 3.5](https://chat.openai.com)'s Free Web API and put it all together into this simple python package.
 
 It supports both **Generative** & **Conversation** mode.
 
 [<img style="margin-top: 10px" src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="160"/>](https://buymeacoffee.com/diezo)
+
+## 🌟 Just a minute!
+ProGPT is still in it's early stages and requires your support. Don't forget to give a star. Thank you!
 
 ## Installation
 ```python
