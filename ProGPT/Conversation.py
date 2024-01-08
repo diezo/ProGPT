@@ -111,7 +111,7 @@ class Conversation:
 
         data: dict = {}
 
-        with open("test.txt", "w") as file:
+        with open("progpt-response.txt", "w") as file:
             file.write(response.text)
 
         for chunk in response.text.split("\n"):
