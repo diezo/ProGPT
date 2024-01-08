@@ -113,7 +113,7 @@ class Generative:
 
         for chunk in response.text.split("\n"):
 
-            if chunk != "" and chunk != "data: [DONE]" and chunk[8:9] != "c":
+            if chunk.startswith("data: {\"message\":"):
 
                 try: data: dict = json.loads(chunk[6:])
                 except JSONDecodeError:

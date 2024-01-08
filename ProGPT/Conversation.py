@@ -115,10 +115,10 @@ class Conversation:
 
         for chunk in response.text.split("\n"):
 
-            if chunk[8:9] == "c" and "conversation_id" in json.loads(chunk[6:]):
+            if chunk.startswith("data: {\"conversation_id\":") and "conversation_id" in json.loads(chunk[6:]):
                 self.conversation_id = json.loads(chunk[6:])["conversation_id"]
 
-            if chunk != "" and chunk != "data: [DONE]" and chunk[8:9] != "c":
+            if chunk.startswith("data: {\"message\":"):
 
                 try: data: dict = json.loads(chunk[6:])
                 except JSONDecodeError:
