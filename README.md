@@ -53,8 +53,8 @@ print(conversation.send("i want to ask something..."))
 ## ⚡ Rate Limit
 Nothing comes free of charge. While using this library is free, OpenAI does put some rate limits per hour when you ask questions too fast. You can use multiple accounts if that's a problem.
 
-## Support
-Want to support this project?
+## Support ProGPT
+To support this project, please consider buying me a coffee here:
 
 [<img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="150"/>](https://buymeacoffee.com/diezo)
 
