@@ -43,7 +43,7 @@ print(generative.prompt("hello"))
 
 <details>
 
-<summary><b>Conversation (Consecutive)</b></summary>
+<summary><b>Conversation</b> (Consecutive)</summary>
 
 Just like chat. AI will remember your past messages in the conversation as well.
 
