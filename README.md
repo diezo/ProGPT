@@ -11,9 +11,6 @@ It supports both **Generative** & **Conversation** mode.
 
 [<img style="margin-top: 10px" src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="160"/>](https://buymeacoffee.com/diezo)
 
-## 🌟 Just a minute!
-ProGPT is still in it's early stages and requires your support. Don't forget to give a star. Thank you!
-
 ## Installation
 ```python
 $ pip install progpt
@@ -26,8 +23,13 @@ $ pip install progpt
 4. Under the **Cookies** section, tap ```https://chat.openai.com```.
 5. Copy the value of ```__Secure-next-auth.session-token``` from the list. This is your *session_token*.
 
-## 🤖 Generative
-Used for independent prompts.
+## Basic Usage
+
+<details>
+
+<summary><b>Generative</b> (Independent)</summary>
+
+Used for individual prompts.
 
 ```python
 from ProGPT import Generative
@@ -37,8 +39,13 @@ generative = Generative(session_token)  # See above on how to get session_token
 print(generative.prompt("hello"))
 ```
 
-## 💬 Conversation
-Just like chat. AI will remember your past messages as well in the conversation.
+</details>
+
+<details>
+
+<summary><b>Conversation (Consecutive)</b></summary>
+
+Just like chat. AI will remember your past messages in the conversation as well.
 
 ```python
 from ProGPT import Conversation
@@ -50,8 +57,10 @@ print(conversation.send("how's your day going?"))
 print(conversation.send("i want to ask something..."))
 ```
 
-## ⚡ Rate Limit
-Nothing comes free of charge. While using this library is free, OpenAI does put some rate limits per hour when you ask questions too fast. You can use multiple accounts if that's a problem.
+</details>
+
+## Rate Limit
+While using this library is free, it does has some rate limits on how many messages you can send per hour. To overcome such restrictions, you can either add time intervals between your prompts or use multiple accounts.
 
 ## Support ProGPT
 To support this project, please consider buying me a coffee here:
