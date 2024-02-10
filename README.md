@@ -17,20 +17,17 @@ Both **Generative** & **Conversation** modes are supported.
 $ pip install progpt
 ```
 
-### Get Session Token
-1. Log in to [chat.openai.com](https://chat.openai.com) on desktop.
-2. Open DevTools by pressing **F12** or **Right Click > Inspect**.
-3. Click on the **Application** tab.
-4. Under the **Cookies** section, tap ```https://chat.openai.com```.
-5. Copy the value of ```__Secure-next-auth.session-token``` from the list. This is your *session_token*.
+### How to get *session_token*?
+Follow these steps on your PC:
+1. Open [chat.openai.com](https://chat.openai.com) and login
+2. Open DevTools by pressing **F12**
+3. Open **Application** tab
+4. Under **Cookies**, tap **https://chat.openai.com**
+5. From the list of cookies, copy value of **__Secure-next-auth.session-token**
 
-## Basic Usage
 
-<details>
-
-<summary><b>Generative</b> (Independent)</summary>
-
-It'll answer individual prompts, not based on previous messages.
+### Generative Mode
+Answers individual prompts, doesn't remember past messages.
 
 ```python
 from ProGPT import Generative
@@ -40,13 +37,8 @@ bot = Generative(session_token)
 print(generative.prompt("who invented electricity?"))
 ```
 
-</details>
-
-<details>
-
-<summary><b>Conversation</b> (Remembers History)</summary>
-
-It'll create a new conversation thread so ChatGPT remembers your message history.
+### Conversation Mode
+Creates a conversation thread and remembers your chat history.
 
 ```python
 from ProGPT import Conversation
@@ -57,12 +49,10 @@ print(bot.send("hello"))
 print(bot.send("how are you?"))
 ```
 
-</details>
-
-## Rate Limit
-To overcome the free rate limits:
-1. Add time gap between prompts
-2. Use multiple accounts
+## Rate Limits
+To overcome the free tier's rate limits:
+- Add time gap between prompts
+- Use multiple accounts consecutively.
 
 ## Support Me
 To support this project, please consider visiting this link:
