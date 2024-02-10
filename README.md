@@ -1,4 +1,4 @@
-# ProGPT - Free GPT-3.5 API
+# ProGPT - Free ChatGPT API
 
 [![PyPI](https://img.shields.io/pypi/v/progpt)](https://pypi.org/project/progpt)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/progpt)]()
