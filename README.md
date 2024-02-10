@@ -8,7 +8,7 @@
 
 I reverse engineered [ChatGPT 3.5](https://chat.openai.com)'s Free Web API and put it all together into this simple python package.
 
-It supports both **Generative** & **Conversation** mode.
+Both **Generative** & **Conversation** modes are supported.
 
 [<img style="margin-top: 10px" src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="160"/>](https://buymeacoffee.com/diezo)
 
@@ -17,7 +17,7 @@ It supports both **Generative** & **Conversation** mode.
 $ pip install progpt
 ```
 
-### Get your session_token
+### Get Session Token
 1. Log in to [chat.openai.com](https://chat.openai.com) on desktop.
 2. Open DevTools by pressing **F12** or **Right Click > Inspect**.
 3. Click on the **Application** tab.
@@ -30,43 +30,46 @@ $ pip install progpt
 
 <summary><b>Generative</b> (Independent)</summary>
 
-Used for individual prompts.
+It'll answer individual prompts, not based on previous messages.
 
 ```python
 from ProGPT import Generative
 
-generative = Generative(session_token)  # See above on how to get session_token
+bot = Generative(session_token)
 
-print(generative.prompt("hello"))
+print(generative.prompt("who invented electricity?"))
 ```
 
 </details>
 
 <details>
 
-<summary><b>Conversation</b> (Consecutive)</summary>
+<summary><b>Conversation</b> (Remembers History)</summary>
 
-Just like chat. AI will remember your past messages in the conversation as well.
+It'll create a new conversation thread so ChatGPT remembers your message history.
 
 ```python
 from ProGPT import Conversation
 
-conversation = Conversation(session_token)  # See above on how to get session_token
+bot = Conversation(session_token)
 
-print(conversation.send("hello"))
-print(conversation.send("how's your day going?"))
-print(conversation.send("i want to ask something..."))
+print(bot.send("hello"))
+print(bot.send("how are you?"))
 ```
 
 </details>
 
 ## Rate Limit
-While using this library is free, it does has some rate limits on how many messages you can send per hour. To overcome such restrictions, you can either add time intervals between your prompts or use multiple accounts.
+To overcome the free rate limits:
+1. Add time gap between prompts
+2. Use multiple accounts
 
-## Support ProGPT
-To support this project, please consider buying me a coffee here:
+## Support Me
+To support this project, please consider visiting this link:
+
+**PayPal:** [**@gitdiezo**](https://www.paypal.com/paypalme/gitdiezo)
 
 [<img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="150"/>](https://buymeacoffee.com/diezo)
 
 ## Legal
-This is a third party library and not associated with OpenAI or ChatGPT. It is strictly for educational purposes only. You are liable for all the actions you take.
+This is a third party library and not associated with OpenAI or ChatGPT. It's strictly for educational purposes. You are liable for all the actions you take.
