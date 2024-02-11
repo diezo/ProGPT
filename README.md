@@ -34,7 +34,7 @@ from ProGPT import Generative
 
 bot = Generative(session_token)
 
-print(generative.prompt("who invented electricity?"))
+print(bot.prompt("who invented electricity?"))
 ```
 
 ### Conversation Mode
