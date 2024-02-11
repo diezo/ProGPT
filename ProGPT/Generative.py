@@ -8,64 +8,23 @@ class Generative:
 
     session: Session
 
-    email: str
-    password: str
-
-    session_token: str
-    bearer_token: str
+    access_token: str
+    history_and_training_enabled: bool
     logging: bool
 
     def __init__(
             self,
-            session_token: str,
+            access_token: str,
             history_and_training_enabled: bool = False,
             logging: bool = False
     ) -> None:
 
         self.logging = logging
-        self.session_token = session_token
+        self.access_token = access_token
         self.history_and_training_enabled = history_and_training_enabled
         self.session: Session = requests.Session()
 
         self.session.headers["user-agent"] = "node"
-
-        self.refresh_bearer_token()
-
-    def refresh_bearer_token(self) -> None:
-
-        response: Response = requests.get(
-            url="https://chat.openai.com/api/auth/session",
-            headers={
-                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                              "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-                "accept": "*/*",
-                "accept-language": "en-US",
-                "content-type": "application/json",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin",
-                "cookie": f"__Secure-next-auth.session-token={self.session_token}",
-                "Referer": "https://chat.openai.com",
-                "Referrer-Policy": "strict-origin-when-cross-origin"
-            }
-        )
-
-        try:
-            response_json: dict = response.json()
-
-            if "accessToken" not in response_json:
-                raise Exception(
-                    "Key 'accessToken' not in response JSON. Most probably you're not "
-                    "logged in. Please check your credentials and try deleting the session file."
-                )
-
-            self.bearer_token = response_json["accessToken"]
-
-        except JSONDecodeError:
-            raise Exception(
-                "HTTP Response is not a valid JSON. "
-                "Please check your network connection or switch to another network."
-            )
 
     def prompt(self, text: str) -> str:
 
@@ -98,7 +57,7 @@ class Generative:
             headers={
                 "accept": "text/event-stream",
                 "accept-language": "en-US",
-                "authorization": f"Bearer {self.bearer_token}",
+                "authorization": f"Bearer {self.access_token}",
                 "content-type": "application/json",
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",

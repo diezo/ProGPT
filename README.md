@@ -17,13 +17,11 @@ Both **Generative** & **Conversation** modes are supported.
 $ pip install progpt
 ```
 
-### How to get *session_token*?
-On your computer:
-1. Open [**chat.openai.com**](https://chat.openai.com) and login
-2. Open DevTools by pressing **F12**
-3. Open **Application** tab
-4. Under **Cookies**, tap **https://chat.openai.com**
-5. From the list of cookies, copy value of **__Secure-next-auth.session-token**
+### How to get *access_token*?
+In your browser:
+1. Login to [**chat.openai.com**](https://chat.openai.com)
+2. Open [**this page**](https://chat.openai.com/api/auth/session), and you'll see **JSON** data
+3. Copy value of **accessToken**
 
 
 ### Generative Mode
@@ -32,7 +30,7 @@ Answers individual prompts, doesn't remember past messages.
 ```python
 from ProGPT import Generative
 
-bot = Generative(session_token)
+bot = Generative(access_token)
 
 print(bot.prompt("who invented electricity?"))
 ```
@@ -43,10 +41,10 @@ Creates a conversation thread and remembers your chat history.
 ```python
 from ProGPT import Conversation
 
-bot = Conversation(session_token)
+bot = Conversation(access_token)
 
-print(bot.send("hello"))
-print(bot.send("how are you?"))
+print(bot.prompt("hello"))
+print(bot.prompt("how are you?"))
 ```
 
 ## Rate Limits
