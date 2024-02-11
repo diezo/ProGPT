@@ -1,10 +1,6 @@
 import requests
 from requests import Session, Response, JSONDecodeError
 import json
-import random
-import string
-import os
-from .Authentication import Authentication
 from uuid import uuid4
 
 
@@ -17,32 +13,38 @@ class Generative:
 
     session_token: str
     bearer_token: str
+    logging: bool
 
     def __init__(
             self,
-            session_token: str
+            session_token: str,
+            history_and_training_enabled: bool = False,
+            logging: bool = False
     ) -> None:
 
+        self.logging = logging
         self.session_token = session_token
+        self.history_and_training_enabled = history_and_training_enabled
         self.session: Session = requests.Session()
 
-        self.session.cookies.set("__Secure-next-auth.session-token", self.session_token)
-        self.session.headers["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " \
-                                             "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        self.session.headers["user-agent"] = "node"
 
         self.refresh_bearer_token()
 
     def refresh_bearer_token(self) -> None:
 
-        response: Response = self.session.get(
+        response: Response = requests.get(
             url="https://chat.openai.com/api/auth/session",
             headers={
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                              "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                 "accept": "*/*",
                 "accept-language": "en-US",
                 "content-type": "application/json",
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
+                "cookie": f"__Secure-next-auth.session-token={self.session_token}",
                 "Referer": "https://chat.openai.com",
                 "Referrer-Policy": "strict-origin-when-cross-origin"
             }
@@ -75,7 +77,7 @@ class Generative:
             },
             "force_paragen": False,
             "force_rate_limit": False,
-            "history_and_training_disabled": True,
+            "history_and_training_disabled": not self.history_and_training_enabled,
             "messages": [{
                 "metadata": {},
                 "author": {
@@ -101,7 +103,7 @@ class Generative:
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
-                "Referer": "https://chat.openai.com",
+                "Referer": "https://chat.openai.com/",
                 "Referrer-Policy": "strict-origin-when-cross-origin"
             },
             data=json.dumps(body)
@@ -109,8 +111,8 @@ class Generative:
 
         data: dict = {}
 
-        with open("test.txt", "w") as file:
-            file.write(response.text)
+        if self.logging:
+            with open("chatgpt-response.txt", "w") as file: file.write(response.text)
 
         for chunk in response.text.split("\n"):
 

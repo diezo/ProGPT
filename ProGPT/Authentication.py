@@ -106,11 +106,6 @@ class Authentication:
                 },
                 data=f"state={state}&username={quote_plus(email)}&password={quote_plus(password)}",
                 allow_redirects=False
-                # data={
-                #     "state": state,
-                #     "username": email,
-                #     "password": password
-                # }
             )
 
             return auth_response.status_code

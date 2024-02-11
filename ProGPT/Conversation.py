@@ -1,8 +1,6 @@
 import requests
 from requests import Session, Response, JSONDecodeError
 import json
-import random
-import string
 from uuid import uuid4
 
 
@@ -14,34 +12,38 @@ class Conversation:
     conversation_id: str = None
     history_and_training_enabled: bool
     bearer_token: str
+    logging: bool
 
     def __init__(
             self,
             session_token: str,
-            history_and_training_enabled: bool = False
+            history_and_training_enabled: bool = False,
+            logging: bool = False
     ) -> None:
 
+        self.logging = logging
         self.session_token = session_token
         self.history_and_training_enabled = history_and_training_enabled
         self.session: Session = requests.Session()
 
-        self.session.cookies.set("__Secure-next-auth.session-token", self.session_token)
-        self.session.headers["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " \
-                                             "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        self.session.headers["user-agent"] = "node"
 
         self.refresh_bearer_token()
 
     def refresh_bearer_token(self) -> None:
 
-        response: Response = self.session.get(
+        response: Response = requests.get(
             url="https://chat.openai.com/api/auth/session",
             headers={
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                              "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                 "accept": "*/*",
                 "accept-language": "en-US",
                 "content-type": "application/json",
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
+                "cookie": f"__Secure-next-auth.session-token={self.session_token}",
                 "Referer": "https://chat.openai.com",
                 "Referrer-Policy": "strict-origin-when-cross-origin"
             }
@@ -68,7 +70,6 @@ class Conversation:
 
         body: dict = {
             "action": "next",
-            "arkose_token": "null",
             "conversation_mode": {
                 "kind": "primary_assistant"
             },
@@ -111,19 +112,20 @@ class Conversation:
 
         data: dict = {}
 
-        with open("test.txt", "w") as file:
-            file.write(response.text)
+        if self.logging:
+            with open("chatgpt-response.txt", "w") as file: file.write(response.text)
 
         for chunk in response.text.split("\n"):
-
-            if chunk.startswith("data: {\"conversation_id\":") and "conversation_id" in json.loads(chunk[6:]):
-                self.conversation_id = json.loads(chunk[6:])["conversation_id"]
 
             if chunk.startswith("data: {\"message\":"):
 
                 try: data: dict = json.loads(chunk[6:])
                 except JSONDecodeError:
                     raise Exception("Couldn't parse assistant's answer into a valid JSON. Please try another prompt.")
+
+        # Update Session's Conversation ID
+        if data.get("conversation_id", "") != "":
+            self.conversation_id = data["conversation_id"]
 
         if data["message"]["status"] != "finished_successfully":
 
