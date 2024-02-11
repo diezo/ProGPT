@@ -1,62 +1,65 @@
-# ProGPT - Free GPT-3.5 API
+# ProGPT - Free ChatGPT API
 
 [![PyPI](https://img.shields.io/pypi/v/progpt)](https://pypi.org/project/progpt)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/progpt)]()
-[![Downloads](https://static.pepy.tech/badge/progpt)](https://pepy.tech/project/progpt)
-[![Twitter Share](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fdiezo%2Fprogpt)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdiezo%2Fprogpt)
+[![Downloads](https://static.pepy.tech/badge/progpt/month)](https://pepy.tech/project/progpt)
+
+![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
 I reverse engineered [ChatGPT 3.5](https://chat.openai.com)'s Free Web API and put it all together into this simple python package.
 
-It supports both **Generative** & **Conversation** mode.
+Both **Generative** & **Conversation** modes are supported.
 
 [<img style="margin-top: 10px" src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="160"/>](https://buymeacoffee.com/diezo)
-
-## 🌟 Just a minute!
-ProGPT is still in it's early stages and requires your support. Don't forget to give a star. Thank you!
 
 ## Installation
 ```python
 $ pip install progpt
 ```
 
-### Get your session_token
-1. Log in to [chat.openai.com](https://chat.openai.com) on desktop.
-2. Open DevTools by pressing **F12** or **Right Click > Inspect**.
-3. Click on the **Application** tab.
-4. Under the **Cookies** section, tap ```https://chat.openai.com```.
-5. Copy the value of ```__Secure-next-auth.session-token``` from the list. This is your *session_token*.
+### How to get *session_token*?
+Follow these steps on your PC:
+1. Open [chat.openai.com](https://chat.openai.com) and login
+2. Open DevTools by pressing **F12**
+3. Open **Application** tab
+4. Under **Cookies**, tap **https://chat.openai.com**
+5. From the list of cookies, copy value of **__Secure-next-auth.session-token**
 
-## 🤖 Generative
-Used for independent prompts.
+
+### Generative Mode
+Answers individual prompts, doesn't remember past messages.
 
 ```python
 from ProGPT import Generative
 
-generative = Generative(session_token)  # See above on how to get session_token
+bot = Generative(session_token)
 
-print(generative.prompt("hello"))
+print(generative.prompt("who invented electricity?"))
 ```
 
-## 💬 Conversation
-Just like chat. AI will remember your past messages as well in the conversation.
+### Conversation Mode
+Creates a conversation thread and remembers your chat history.
 
 ```python
 from ProGPT import Conversation
 
-conversation = Conversation(session_token)  # See above on how to get session_token
+bot = Conversation(session_token)
 
-print(conversation.send("hello"))
-print(conversation.send("how's your day going?"))
-print(conversation.send("i want to ask something..."))
+print(bot.send("hello"))
+print(bot.send("how are you?"))
 ```
 
-## ⚡ Rate Limit
-Nothing comes free of charge. While using this library is free, OpenAI does put some rate limits per hour when you ask questions too fast. You can use multiple accounts if that's a problem.
+## Rate Limits
+To overcome the free tier's rate limits:
+- Add time gap between prompts
+- Use multiple accounts consecutively.
 
-## Support
-Want to support this project?
+## Support Me
+To support this project, please consider visiting this link:
+
+**PayPal:** [**@gitdiezo**](https://www.paypal.com/paypalme/gitdiezo)
 
 [<img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="150"/>](https://buymeacoffee.com/diezo)
 
 ## Legal
-This is a third party library and not associated with OpenAI or ChatGPT. It is strictly for educational purposes only. You are liable for all the actions you take.
+This is a third party library and not associated with OpenAI or ChatGPT. It's strictly for educational purposes. You are liable for all the actions you take.
