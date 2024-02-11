@@ -6,7 +6,7 @@
 
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 
-I reverse engineered [ChatGPT 3.5](https://chat.openai.com)'s Free Web API and put it all together into this simple python package.
+I reverse engineered **ChatGPT's Free Web API** and made this simple python package.
 
 Both **Generative** & **Conversation** modes are supported.
 
@@ -18,8 +18,8 @@ $ pip install progpt
 ```
 
 ### How to get *session_token*?
-Follow these steps on your PC:
-1. Open [chat.openai.com](https://chat.openai.com) and login
+On your computer:
+1. Open [**chat.openai.com**](https://chat.openai.com) and login
 2. Open DevTools by pressing **F12**
 3. Open **Application** tab
 4. Under **Cookies**, tap **https://chat.openai.com**
@@ -52,10 +52,10 @@ print(bot.send("how are you?"))
 ## Rate Limits
 To overcome the free tier's rate limits:
 - Add time gap between prompts
-- Use multiple accounts consecutively.
+- Use multiple accounts
 
-## Support Me
-To support this project, please consider visiting this link:
+## Donate
+Wish to support this project? Please consider donating here:
 
 **PayPal:** [**@gitdiezo**](https://www.paypal.com/paypalme/gitdiezo)
 
