@@ -52,7 +52,7 @@ To overcome the free tier's rate limits:
 - Add time gap between prompts
 - Use multiple accounts
 
-## Donate
+## ❤ Donate
 Want to support this project? Please consider donating here:
 <!--**PayPal:** [**@gitdiezo**](https://www.paypal.com/paypalme/gitdiezo)-->
 
