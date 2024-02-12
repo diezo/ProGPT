@@ -53,9 +53,8 @@ To overcome the free tier's rate limits:
 - Use multiple accounts
 
 ## Donate
-Wish to support this project? Please consider donating here:
-
-**PayPal:** [**@gitdiezo**](https://www.paypal.com/paypalme/gitdiezo)
+Want to support this project? Please consider donating here:
+<!--**PayPal:** [**@gitdiezo**](https://www.paypal.com/paypalme/gitdiezo)-->
 
 [<img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" width="150"/>](https://buymeacoffee.com/diezo)
 
