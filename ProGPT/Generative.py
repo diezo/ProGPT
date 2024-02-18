@@ -18,6 +18,12 @@ class Generative:
             history_and_training_enabled: bool = False,
             logging: bool = False
     ) -> None:
+        """
+        Single prompting. Doesn't preserve message history. Answers are not based on the previous context.
+        :param access_token: Value of access_token from https://chat.openai.com/api/auth/session
+        :param history_and_training_enabled: Should this chat session be saved in your account?
+        :param logging: Should logging be enabled?
+        """
 
         self.logging = logging
         self.access_token = access_token

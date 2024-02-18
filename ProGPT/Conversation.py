@@ -19,6 +19,12 @@ class Conversation:
             history_and_training_enabled: bool = False,
             logging: bool = False
     ) -> None:
+        """
+        Chat-like prompting. Preserves message history and answers based on that context.
+        :param access_token: Value of access_token from https://chat.openai.com/api/auth/session
+        :param history_and_training_enabled: Should this chat session be saved in your account?
+        :param logging: Should logging be enabled?
+        """
 
         self.logging = logging
         self.access_token = access_token
