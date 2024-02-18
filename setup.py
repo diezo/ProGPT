@@ -30,7 +30,8 @@ setup(
     ],
     install_requires=[
         "requests",
-        "selenium"
+        "selenium",
+        "websockets"
     ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
