@@ -1,7 +1,7 @@
 from distutils.core import setup
 from pathlib import Path
 
-version = "1.0.7"
+version = "1.0.8"
 long_description = (Path(__file__).parent / "README.md").read_text(encoding="utf-8")
 
 setup(
@@ -9,7 +9,7 @@ setup(
     packages=["ProGPT"],
     version=version,
     license="MIT",
-    description="❄️ Python Package To Access GPT-3.5 Free Model",
+    description="🧠 Reverse-Engineered Python Client for ChatGPT Web Conversations",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Deepak Soni",
